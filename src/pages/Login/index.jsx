@@ -15,14 +15,7 @@ function Login() {
     <div className="content-center h-screen w-screen inline-grid items-center justify-center">
       <div className="text-3xl underline font-semibold">Log In to Food Facts</div>
       <div className="mt-5 max-w-[300px]">
-        <Form
-          wrapperCol={{
-            span: 24,
-          }}
-          layout="vertical"
-          onFinish={(value) => onSubmit(value)}
-          autoComplete="off"
-        >
+        <Form layout="vertical" onFinish={(value) => onSubmit(value)} autoComplete="off">
           <Form.Item
             label="Username"
             name="username"
