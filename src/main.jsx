@@ -1,10 +1,33 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import Login from './pages/Login/index.jsx'
+import Dashboard from './pages/Dashboard/index.jsx'
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+  },
+  // {
+  //   path: '*',
+  //   element: <PagesError404 />,
+  // },
+])
+
+const queryClient = new QueryClient()
+
+const root = createRoot(document.getElementById('root'))
+root.render(
   <StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>,
 )
