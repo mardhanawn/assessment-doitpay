@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import PrivateRoute from './components/PrivateRoute/index.jsx'
 import Login from './pages/Login/index.jsx'
 import Dashboard from './pages/Dashboard/index.jsx'
 import ContactUs from './pages/ContactUs/index.jsx'
@@ -10,20 +11,32 @@ import Pages404 from './pages/404/index.jsx'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />,
   },
   {
     path: '/dashboard',
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
     path: '/contact-us',
-    element: <ContactUs />,
+    element: (
+      <PrivateRoute>
+        <ContactUs />
+      </PrivateRoute>
+    ),
   },
   {
     path: '*',
-    element: <Pages404 />,
+    element: (
+      <PrivateRoute>
+        <Pages404 />
+      </PrivateRoute>
+    ),
   },
 ])
 
