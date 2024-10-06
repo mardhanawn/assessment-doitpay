@@ -6,6 +6,7 @@ import './index.css'
 import Login from './pages/Login/index.jsx'
 import Dashboard from './pages/Dashboard/index.jsx'
 import ContactUs from './pages/ContactUs/index.jsx'
+import Pages404 from './pages/404/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,10 +21,10 @@ const router = createBrowserRouter([
     path: '/contact-us',
     element: <ContactUs />,
   },
-  // {
-  //   path: '*',
-  //   element: <PagesError404 />,
-  // },
+  {
+    path: '*',
+    element: <Pages404 />,
+  },
 ])
 
 const queryClient = new QueryClient()
