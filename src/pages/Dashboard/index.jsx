@@ -1,7 +1,7 @@
-import { Button } from 'antd'
 import { useQuery } from 'react-query'
 import BaseCard from '../../components/Card'
 import Spinner from '../../components/Spinner'
+import ButtonLogout from '../../components/Button/ButtonLogout'
 import { lists_food } from '../../services/api/foodfacts'
 
 function Dashboard() {
@@ -12,10 +12,12 @@ function Dashboard() {
   })
 
   return (
-    <div className="h-screen w-screen p-5">
-      <div className="text-3xl underline font-semibold">Dashboard</div>
-      <Button onClick={() => localStorage.clear()}>Logout</Button>
-      <div className="mt-5">
+    <div className="p-5">
+      <div className="flex items-center justify-between">
+        <div className="text-3xl underline font-semibold">Dashboard</div>
+        <ButtonLogout />
+      </div>
+      <div className="my-5 mb-5">
         <div>Username: {localStorage.getItem('username')}</div>
         {isLoading && <Spinner />}
         {
@@ -26,7 +28,7 @@ function Dashboard() {
             <div className="text-base">{`Page Size ${data?.page_size}`}</div>
           </div>
         }
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 my-5">
           {data?.products.map((product) => {
             return (
               <BaseCard

@@ -5,7 +5,7 @@ function Login() {
   const navigate = useNavigate()
 
   const onSubmit = ({ username }) => {
-    if (username.length > 3 && username.length < 50) {
+    if (username.length > 5 && username.length <= 50) {
       localStorage.setItem('username', username)
       navigate('/dashboard')
     }
@@ -25,8 +25,8 @@ function Login() {
                 message: 'Username is required',
               },
               {
-                min: 3,
-                message: 'Username must be at least 3 characters',
+                min: 5,
+                message: 'Username must be at least 5 characters',
               },
               {
                 max: 50,
