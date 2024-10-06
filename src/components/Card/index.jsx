@@ -1,6 +1,6 @@
 import { Card, Image } from 'antd'
 
-const BaseCard = ({ key, product_name, image_url, allergens }) => {
+function BaseCard({ key, product_name, image_url, allergens }) {
   const { Meta } = Card
 
   return (
