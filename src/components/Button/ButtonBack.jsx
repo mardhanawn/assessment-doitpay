@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router-dom'
 function ButtonBack({ path, previous }) {
   const newPath = previous ? -1 : `/${path}`
   const navigate = useNavigate()
-  return <HiChevronLeft className="size-10 cursor-pointer" onClick={() => navigate(newPath)} />
+  return (
+    <div className="text-3xl">
+      <HiChevronLeft className="cursor-pointer" onClick={() => navigate(newPath)} />
+    </div>
+  )
 }
 
 export default ButtonBack

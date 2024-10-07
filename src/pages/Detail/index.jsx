@@ -1,8 +1,7 @@
 import { notification } from 'antd'
-import { HiChevronLeft } from 'react-icons/hi'
 import { useQuery } from 'react-query'
-import { useNavigate, useParams } from 'react-router-dom'
-import ButtonLogout from '../../components/Button/ButtonLogout'
+import { useParams } from 'react-router-dom'
+import ButtonBack from '../../components/Button/ButtonBack'
 import DetailCard from '../../components/Card/DetailCard'
 import NutriscoreCard from '../../components/Card/NutriscoreCard'
 import NutriscoreDataCard from '../../components/Card/NutriscoreDataCard'
@@ -11,7 +10,6 @@ import { product_detail } from '../../services/api/foodfacts'
 import openNotification from '../../utils/notification'
 
 function Detail() {
-  const navigate = useNavigate()
   const { id } = useParams()
   const { isLoading, data: productData } = useQuery(
     ['product_detail', id],
@@ -34,19 +32,15 @@ function Detail() {
   if (isLoading) return <PageSpinner />
 
   return (
-    <div className="py-5 md:px-20 sm:px-10">
+    <div className="p-5 md:px-10 sm:px-10">
       {contextHolder}
       <div className="flex items-center justify-between">
-        <div className="flex text-3xl font-bold">
-          <HiChevronLeft
-            className="size-10 cursor-pointer"
-            onClick={() => navigate('/dashboard')}
-          />
+        <div className="flex items-center text-3xl font-bold">
+          <ButtonBack path="dashboard" />
           {`Detail Product : ${product.product_name}`}
         </div>
-        <ButtonLogout />
       </div>
-      <div className="grid gap-y-5 py-5">
+      <div className="grid grid-cols-1 gap-5 py-5">
         <DetailCard product={product} />
         <NutriscoreCard grade={product.nutriscore_grade} score={product.nutriscore_score} />
         <NutriscoreDataCard data={product.nutriscore_data} />

@@ -1,5 +1,5 @@
 import { Button, Form, Input, notification, Space } from 'antd'
-import ButtonLogout from '../../components/Button/ButtonLogout'
+import ButtonBack from '../../components/Button/ButtonBack'
 import openNotification from '../../utils/notification'
 
 function ContactUs() {
@@ -15,11 +15,13 @@ function ContactUs() {
   }
 
   return (
-    <div className="p-5">
+    <div className="p-5 md:px-10 sm:px-10">
       {contextHolder}
       <div className="flex items-center justify-between">
-        <div className="text-3xl underline font-semibold">Contact Us</div>
-        <ButtonLogout />
+        <div className="flex items-center text-3xl font-bold">
+          <ButtonBack previous />
+          Contact Us
+        </div>
       </div>
       <div className="my-5">
         <div className="text-lg my-5">
