@@ -1,6 +1,6 @@
 import { Tag } from 'antd'
 
-function NutrientLevelTag({ type, level }) {
+function NutrientLevelTag({ nutrient_levels }) {
   const colorCategory = (level) => {
     switch (level) {
       case 'low':
@@ -26,15 +26,16 @@ function NutrientLevelTag({ type, level }) {
     }
   }
 
-  const { color, text } = colorCategory(level)
-
-  return (
-    <Tag color={color}>
-      <div className="text-base">
-        {type.charAt(0).toUpperCase() + type.slice(1)}: {text}
-      </div>
-    </Tag>
-  )
+  return Object.entries(nutrient_levels).map(([type, level]) => {
+    const { color, text } = colorCategory(level)
+    return (
+      <Tag key={type} color={color}>
+        <div className="text-base">
+          {type.charAt(0).toUpperCase() + type.slice(1)}: {text}
+        </div>
+      </Tag>
+    )
+  })
 }
 
 export default NutrientLevelTag
