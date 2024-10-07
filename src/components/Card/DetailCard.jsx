@@ -27,9 +27,7 @@ function DetailCard({ product }) {
             <div className="text-base mr-3">Nutrient level : </div>
             <Col>
               <Row gutter={[8, 8]}>
-                {Object.entries(product.nutrient_levels).map(([type, value]) => (
-                  <NutrientLevelTag key={type} type={type} level={value} />
-                ))}
+                <NutrientLevelTag nutrient_levels={product.nutrient_levels} />
               </Row>
             </Col>
           </Row>
@@ -37,9 +35,7 @@ function DetailCard({ product }) {
             <div className="text-base mr-3">Nutriments : </div>
             <Col>
               <Row gutter={[8, 8]}>
-                {Object.entries(product.nutriments).map(([type, value]) => (
-                  <NutrimentsTag key={type} type={type} value={value} />
-                ))}
+                <NutrimentsTag nutriments={product.nutriments} />
               </Row>
             </Col>
           </Row>
