@@ -10,14 +10,10 @@ import Pages404 from '../404'
 
 function Detail() {
   const { id } = useParams()
-  const {
-    isLoading,
-    data: productData,
-    error,
-  } = useQuery(['product_detail', id], () => product_detail(id), {
+  const { isLoading, data, error } = useQuery(['product_detail', id], () => product_detail(id), {
     onError: (error) => console.log(error),
   })
-  const { product } = productData || {}
+  const { product } = data || {}
 
   if (isLoading) return <PageSpinner />
 
