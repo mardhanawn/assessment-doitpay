@@ -1,7 +1,7 @@
 import baseAPI from '../axios/baseAPI'
 
-export async function lists_food() {
-  return baseAPI.get(`/search`).then((response) => {
+export async function lists_food({ page, pageSize }) {
+  return baseAPI.get(`/search?page=${page}&page_size=${pageSize}`).then((response) => {
     return response.data
   })
 }
