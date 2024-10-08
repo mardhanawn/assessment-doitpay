@@ -1,4 +1,3 @@
-import { notification } from 'antd'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import ButtonBack from '../../components/Button/ButtonBack'
@@ -7,33 +6,27 @@ import NutriscoreCard from '../../components/Card/NutriscoreCard'
 import NutriscoreDataCard from '../../components/Card/NutriscoreDataCard'
 import PageSpinner from '../../components/Spinner/PageSpinner'
 import { product_detail } from '../../services/api/foodfacts'
-import openNotification from '../../utils/notification'
+import Pages404 from '../404'
 
 function Detail() {
   const { id } = useParams()
-  const { isLoading, data: productData } = useQuery(
-    ['product_detail', id],
-    () => product_detail(id),
-    {
-      staleTime: Infinity,
-      cacheTime: Infinity,
-      onError: () => {
-        openNotification(api.open, {
-          message: `Oopss! Something went wrong`,
-          description: 'Please try again later',
-        })
-      },
-    },
-  )
+  const {
+    isLoading,
+    data: productData,
+    error,
+  } = useQuery(['product_detail', id], () => product_detail(id), {
+    onError: (error) => console.log(error),
+  })
   const { product } = productData || {}
-
-  const [api, contextHolder] = notification.useNotification()
 
   if (isLoading) return <PageSpinner />
 
+  if (error) {
+    return <Pages404 />
+  }
+
   return (
     <div className="p-5 md:px-10 sm:px-10">
-      {contextHolder}
       <div className="flex items-center justify-between">
         <div className="flex items-center text-3xl font-bold">
           <ButtonBack path="dashboard" />
