@@ -2,10 +2,10 @@ import { Pagination } from 'antd'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import CardProduct from '../../components/Card/CardProduct'
+import EmptyData from '../../components/EmptyData'
 import SearchProductList from '../../components/Search/SearchProductList'
 import Spinner from '../../components/Spinner'
 import { list_products } from '../../services/api/foodfacts'
-import EmptyData from '../../components/EmptyData'
 
 function Dashboard() {
   const [search, setSearch] = useState('')
@@ -46,10 +46,12 @@ function Dashboard() {
       <div className="my-5 mb-5">
         <SearchProductList onSearch={onSearch} />
         {isLoading ? (
-          <Spinner />
+          <div className="my-10 items-center text-center">
+            <Spinner />
+          </div>
         ) : (
           <>
-            {data?.count === 0 && <EmptyData />}
+            {data?.products.length === 0 && <EmptyData />}
             <div className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {data?.products.map((product) => {
                 return (

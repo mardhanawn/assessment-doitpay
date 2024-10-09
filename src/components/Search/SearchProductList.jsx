@@ -18,7 +18,7 @@ function SearchProductList({ onSearch }) {
 
   return (
     <Search
-      placeholder="Search Product"
+      placeholder="Search by Category Name"
       allowClear
       size="large"
       onChange={handleInputChange}
