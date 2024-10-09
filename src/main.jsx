@@ -2,13 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Layout from './Layout'
+import PrivateRoute from './components/PrivateRoute'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import Detail from './pages/Detail'
+import ContactUs from './pages/ContactUs'
+import Pages404 from './pages/404'
 import './index.css'
-import PrivateRoute from './components/PrivateRoute/index.jsx'
-import Login from './pages/Login/index.jsx'
-import Dashboard from './pages/Dashboard/index.jsx'
-import Detail from './pages/Detail/index.jsx'
-import ContactUs from './pages/ContactUs/index.jsx'
-import Pages404 from './pages/404/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,9 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: (
       <PrivateRoute>
-        <Dashboard />
+        <Layout>
+          <Dashboard />
+        </Layout>
       </PrivateRoute>
     ),
   },
@@ -27,7 +30,9 @@ const router = createBrowserRouter([
     path: '/detail/:id',
     element: (
       <PrivateRoute>
-        <Detail />
+        <Layout>
+          <Detail />
+        </Layout>
       </PrivateRoute>
     ),
   },
@@ -35,7 +40,9 @@ const router = createBrowserRouter([
     path: '/contact-us',
     element: (
       <PrivateRoute>
-        <ContactUs />
+        <Layout>
+          <ContactUs />
+        </Layout>
       </PrivateRoute>
     ),
   },
@@ -43,7 +50,9 @@ const router = createBrowserRouter([
     path: '*',
     element: (
       <PrivateRoute>
-        <Pages404 />
+        <Layout>
+          <Pages404 />
+        </Layout>
       </PrivateRoute>
     ),
   },
