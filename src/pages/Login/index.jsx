@@ -12,8 +12,8 @@ function Login() {
   }
 
   return (
-    <div className="content-center h-screen w-screen inline-grid items-center justify-center">
-      <div className="text-3xl underline font-semibold">Log In to Food Facts</div>
+    <div className="inline-grid h-screen w-screen content-center items-center justify-center">
+      <div className="text-3xl font-semibold underline">Log In to Food Facts</div>
       <div className="mt-5 max-w-[300px]">
         <Form layout="vertical" onFinish={(value) => onSubmit(value)} autoComplete="off">
           <Form.Item

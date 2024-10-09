@@ -36,7 +36,7 @@ function NOVATag({ type }) {
 
   return (
     <Tag color={color}>
-      <div className="text-base text-wrap">{text}</div>
+      <div className="text-wrap text-base">{text}</div>
     </Tag>
   )
 }

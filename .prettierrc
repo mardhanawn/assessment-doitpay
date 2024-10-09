@@ -9,5 +9,6 @@
       "files": ".prettierrc",
       "options": { "parser": "babylon" }
     }
-  ]
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

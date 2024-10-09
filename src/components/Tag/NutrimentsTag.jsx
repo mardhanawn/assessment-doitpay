@@ -5,7 +5,7 @@ function NutrimentsTag({ nutriments }) {
   return Object.entries(nutriments).map(([type, value]) => {
     return (
       <Tag key={type} color="default">
-        <div className="text-base text-wrap">
+        <div className="text-wrap text-base">
           {formattingCharUnderscoreWithSpace(type)}: {value}
         </div>
       </Tag>

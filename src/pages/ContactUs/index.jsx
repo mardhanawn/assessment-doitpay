@@ -15,7 +15,7 @@ function ContactUs() {
   }
 
   return (
-    <div className="p-5 md:px-10 sm:px-10">
+    <div className="p-5 sm:px-10 md:px-10">
       {contextHolder}
       <div className="flex items-center justify-between">
         <div className="flex items-center text-3xl font-bold">
@@ -24,7 +24,7 @@ function ContactUs() {
         </div>
       </div>
       <div className="my-5">
-        <div className="text-lg my-5">
+        <div className="my-5 text-lg">
           Help us make food transparency the norm! <br />
           {`We're all ears! Let us know how we can make this app even better for you. Developed by
           Ardhana Wahyu, we'll keep improving based on your feedback.`}

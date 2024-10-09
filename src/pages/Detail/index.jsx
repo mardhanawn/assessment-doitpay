@@ -24,7 +24,7 @@ function Detail() {
   }
 
   return (
-    <div className="p-5 md:px-10 sm:px-10">
+    <div className="p-5 sm:px-10 md:px-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center text-3xl font-bold">
           <ButtonBack path="dashboard" />

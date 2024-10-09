@@ -4,7 +4,7 @@ import NutriscoreDataTag from '../Tag/NutriscoreDataTag'
 function NutriscoreDataCard({ data }) {
   return (
     <Card className="border-2">
-      <div className="text-3xl mb-5 font-semibold">Nutriscore Data</div>
+      <div className="mb-5 text-3xl font-semibold">Nutriscore Data</div>
       <Row>
         <Col>
           <Row gutter={[8, 8]}>

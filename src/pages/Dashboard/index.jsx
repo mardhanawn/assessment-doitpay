@@ -36,7 +36,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="p-5 md:px-10 sm:px-10">
+    <div className="p-5 sm:px-10 md:px-10">
       <div className="text-3xl font-bold">Dashboard</div>
       <div className="my-5 mb-5">
         <ProductListSearch onSearch={onSearch} />
@@ -44,7 +44,7 @@ function Dashboard() {
           <Spinner />
         ) : (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 my-5">
+            <div className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {data?.products.map((product) => {
                 return (
                   <ProductCard

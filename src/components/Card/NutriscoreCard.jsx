@@ -5,8 +5,8 @@ import NutriscoreTag from '../Tag/NutriscoreTag'
 function NutriscoreCard({ grade, score }) {
   return (
     <Card className="border-2">
-      <div className="text-3xl mb-5 font-semibold">Nutriscore</div>
-      <div className="text-base text-wrap mb-5">
+      <div className="mb-5 text-3xl font-semibold">Nutriscore</div>
+      <div className="mb-5 text-wrap text-base">
         {`The Nutri-Score, also known as the 5-Colour Nutrition label or 5-CNL, is a five-colour
         nutrition label and nutritional rating system and an attempt to simplify the nutritional
         rating system demonstrating the overall nutritional value of food products. It assigns
@@ -26,7 +26,7 @@ function NutriscoreCard({ grade, score }) {
         the European Commission and the World Health Organization. Due to the system's
         methodology, its implementation for general use is controversial in some EU countries.`}
       </div>
-      <div className="flex text-3xl gap-x-5 font-semibold items-center">
+      <div className="flex items-center gap-x-5 text-3xl font-semibold">
         <Image width={100} src={nutriscore} preview={false} />
         <div>
           Grade : <NutriscoreTag grade={grade} />
