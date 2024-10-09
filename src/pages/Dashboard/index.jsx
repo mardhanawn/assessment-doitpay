@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import CardProduct from '../../components/Card/CardProduct'
 import SearchProductList from '../../components/Search/SearchProductList'
 import Spinner from '../../components/Spinner'
-import { lists_food } from '../../services/api/foodfacts'
+import { list_products } from '../../services/api/foodfacts'
 
 function Dashboard() {
   const [search, setSearch] = useState('')
@@ -12,17 +12,21 @@ function Dashboard() {
   const [page, setPage] = useState(JSON.parse(paginationDashboard)?.page || 1)
   const [pageSize, setPageSize] = useState(JSON.parse(paginationDashboard)?.pageSize || 20)
 
-  const paramsLists = {
-    categories_tags: search,
+  const paramsList = {
+    ...(search && { categories_tags: search }),
     page,
     pageSize,
   }
 
-  const { isLoading, data } = useQuery(['lists_food', paramsLists], () => lists_food(paramsLists), {
-    staleTime: Infinity,
-    cacheTime: Infinity,
-    onError: (error) => console.log(error),
-  })
+  const { isLoading, data } = useQuery(
+    ['list_products', paramsList],
+    () => list_products(paramsList),
+    {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      onError: (error) => console.log(error),
+    },
+  )
 
   const onSearch = (value) => {
     setSearch(value)
