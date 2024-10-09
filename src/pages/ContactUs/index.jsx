@@ -1,10 +1,9 @@
-import { Button, Form, Input, notification, Space } from 'antd'
+import { Form, notification } from 'antd'
 import ButtonBack from '../../components/Button/ButtonBack'
-import SelectRole from '../../components/Select/SelectRole'
 import openNotification from '../../utils/notification'
+import FormContactUs from './Form'
 
 function ContactUs() {
-  const { TextArea } = Input
   const [form] = Form.useForm()
   const [api, contextHolder] = notification.useNotification()
 
@@ -32,51 +31,7 @@ function ContactUs() {
           Ardhana Wahyu, we'll keep improving based on your feedback.`}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-          <Form
-            form={form}
-            layout="vertical"
-            onFinish={(value) => onSubmit(value)}
-            autoComplete="off"
-          >
-            <Form.Item
-              label="Name"
-              name="name"
-              rules={[
-                {
-                  required: true,
-                  message: 'Name is required',
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Email"
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: 'Email is required',
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item label="Role Position" name="rolePosition">
-              <SelectRole />
-            </Form.Item>
-            <Form.Item label="Message" name="message">
-              <TextArea rows={4} placeholder="" />
-            </Form.Item>
-            <Space>
-              <Button type="default" htmlType="reset">
-                Reset
-              </Button>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Space>
-          </Form>
+          <FormContactUs form={form} onSubmit={onSubmit} />
         </div>
       </div>
     </div>
