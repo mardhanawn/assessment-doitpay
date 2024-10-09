@@ -4,6 +4,7 @@ import ButtonBack from '../../components/Button/ButtonBack'
 import CardDetail from '../../components/Card/CardDetail'
 import CardNutriscore from '../../components/Card/CardNutriscore'
 import CardNutriscoreData from '../../components/Card/CardNutriscoreData'
+import EmptyData from '../../components/EmptyData'
 import SpinnerPage from '../../components/Spinner/SpinnerPage'
 import { product_detail } from '../../services/api/foodfacts'
 import Pages404 from '../404'
@@ -23,12 +24,14 @@ function Detail() {
     return <Pages404 />
   }
 
+  if (data.status === 0) return <EmptyData />
+
   return (
     <div className="p-5 sm:px-10 md:px-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center text-3xl font-bold">
           <ButtonBack path="dashboard" />
-          {`Detail Product : ${product.product_name}`}
+          {`Detail Product : ${product?.product_name}`}
         </div>
       </div>
       <div className="grid grid-cols-1 gap-5 py-5">
