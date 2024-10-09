@@ -1,7 +1,7 @@
 import { Card, Col, Row } from 'antd'
 import TagNutriscoreData from '../Tag/TagNutriscoreData'
 
-function CardNutriscoreData({ data }) {
+function CardNutriscoreData({ data = {} }) {
   return (
     <Card className="border-2">
       <div className="mb-5 text-3xl font-semibold">Nutriscore Data</div>

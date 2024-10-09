@@ -36,11 +36,11 @@ function TagNutriscore({ grade }) {
     }
   }
 
-  const { color, text } = getColorCategory(grade)
+  const { color, text } = getColorCategory(grade) || {}
 
   return (
     <Tag color={color}>
-      <div className="text-3xl font-semibold">{text.toUpperCase()}</div>
+      <div className="text-3xl font-semibold">{text?.toUpperCase()}</div>
     </Tag>
   )
 }
