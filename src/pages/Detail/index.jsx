@@ -11,6 +11,8 @@ import Pages404 from '../404'
 function Detail() {
   const { id } = useParams()
   const { isLoading, data, error } = useQuery(['product_detail', id], () => product_detail(id), {
+    staleTime: Infinity,
+    cacheTime: Infinity,
     onError: (error) => console.log(error),
   })
   const { product } = data || {}
