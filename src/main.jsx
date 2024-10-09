@@ -14,7 +14,11 @@ import './index.css'
 const router = createBrowserRouter([
   {
     path: '/login',
-    element: <Login />,
+    element: (
+      <PrivateRoute>
+        <Login />
+      </PrivateRoute>
+    ),
   },
   {
     path: '/dashboard',
