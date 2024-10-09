@@ -1,43 +1,45 @@
-import { notification, Pagination } from 'antd'
+import { Pagination } from 'antd'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import ProductCard from '../../components/Card/ProductCard'
 import Spinner from '../../components/Spinner'
+import ProductListSearch from '../../components/Search/ProductListSearch'
 import { lists_food } from '../../services/api/foodfacts'
-import openNotification from '../../utils/notification'
 
 function Dashboard() {
-  const [page, setPage] = useState(1)
-  const [pageSize, setPageSize] = useState(20)
+  const [search, setSearch] = useState('')
+  const paginationDashboard = localStorage.getItem('paginationDashboard')
+  const [page, setPage] = useState(JSON.parse(paginationDashboard)?.page || 1)
+  const [pageSize, setPageSize] = useState(JSON.parse(paginationDashboard)?.pageSize || 20)
 
-  const { isLoading, data } = useQuery(
-    ['lists_food', { page, pageSize }],
-    () => lists_food({ page, pageSize }),
-    {
-      staleTime: Infinity,
-      cacheTime: Infinity,
-      onError: () => {
-        openNotification(api.open, {
-          message: `Oopss! Something went wrong`,
-          description: 'Please try again later',
-        })
-      },
-    },
-  )
+  const paramsLists = {
+    categories_tags: search,
+    page,
+    pageSize,
+  }
 
-  const [api, contextHolder] = notification.useNotification()
+  const { isLoading, data } = useQuery(['lists_food', paramsLists], () => lists_food(paramsLists), {
+    staleTime: Infinity,
+    cacheTime: Infinity,
+    onError: (error) => console.log(error),
+  })
 
-  const onShowSizeChange = (current, pageSize) => {
-    setPage(current)
+  const onSearch = (value) => {
+    setSearch(value)
+    setPage(1)
+  }
+
+  const handlePageChange = (page, pageSize) => {
+    setPage(page)
     setPageSize(pageSize)
+    localStorage.setItem('paginationDashboard', JSON.stringify({ page, pageSize }))
   }
 
   return (
     <div className="p-5 md:px-10 sm:px-10">
-      {contextHolder}
       <div className="text-3xl font-bold">Dashboard</div>
       <div className="my-5 mb-5">
-        <div>Username: {localStorage.getItem('username')}</div>
+        <ProductListSearch onSearch={onSearch} />
         {isLoading ? (
           <Spinner />
         ) : (
@@ -60,7 +62,7 @@ function Dashboard() {
               current={page}
               pageSize={pageSize}
               total={data?.count}
-              onChange={onShowSizeChange}
+              onChange={handlePageChange}
             />
           </>
         )}
