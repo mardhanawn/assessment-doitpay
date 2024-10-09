@@ -1,5 +1,6 @@
 import { Button, Form, Input, notification, Space } from 'antd'
 import ButtonBack from '../../components/Button/ButtonBack'
+import SelectRole from '../../components/Select/SelectRole'
 import openNotification from '../../utils/notification'
 
 function ContactUs() {
@@ -8,6 +9,7 @@ function ContactUs() {
   const [api, contextHolder] = notification.useNotification()
 
   const onSubmit = (value) => {
+    form.resetFields()
     openNotification(api.open, {
       message: `Thank you ${value.name}!`,
       description: 'Please wait for our response. We will contact you as soon as possible.',
@@ -59,6 +61,9 @@ function ContactUs() {
               ]}
             >
               <Input />
+            </Form.Item>
+            <Form.Item label="Role Position" name="rolePosition">
+              <SelectRole />
             </Form.Item>
             <Form.Item label="Message" name="message">
               <TextArea rows={4} placeholder="" />
