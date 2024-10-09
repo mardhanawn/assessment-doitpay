@@ -34,7 +34,7 @@ const Sidebar = () => {
         placement="left"
         closable={true}
         onClose={onClose}
-        visible={visible}
+        open={visible}
       >
         <Menu mode="inline">
           {menuItem.map(({ path, title }, index) => (

@@ -1,7 +1,7 @@
 import { Tag } from 'antd'
 import { formattingCharUnderscoreWithSpace } from '../../utils/helper'
 
-function NutrimentsTag({ nutriments }) {
+function TagNutriments({ nutriments }) {
   return Object.entries(nutriments).map(([type, value]) => {
     return (
       <Tag key={type} color="default">
@@ -13,4 +13,4 @@ function NutrimentsTag({ nutriments }) {
   })
 }
 
-export default NutrimentsTag
+export default TagNutriments

@@ -1,9 +1,9 @@
 import { Pagination } from 'antd'
 import { useState } from 'react'
 import { useQuery } from 'react-query'
-import ProductCard from '../../components/Card/ProductCard'
+import CardProduct from '../../components/Card/CardProduct'
+import SearchProductList from '../../components/Search/SearchProductList'
 import Spinner from '../../components/Spinner'
-import ProductListSearch from '../../components/Search/ProductListSearch'
 import { lists_food } from '../../services/api/foodfacts'
 
 function Dashboard() {
@@ -39,7 +39,7 @@ function Dashboard() {
     <div className="p-5 sm:px-10 md:px-10">
       <div className="text-3xl font-bold">Dashboard</div>
       <div className="my-5 mb-5">
-        <ProductListSearch onSearch={onSearch} />
+        <SearchProductList onSearch={onSearch} />
         {isLoading ? (
           <Spinner />
         ) : (
@@ -47,7 +47,7 @@ function Dashboard() {
             <div className="my-5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {data?.products.map((product) => {
                 return (
-                  <ProductCard
+                  <CardProduct
                     id={product.id}
                     key={product.id}
                     product_name={product.product_name}

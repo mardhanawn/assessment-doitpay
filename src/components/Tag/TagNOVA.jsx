@@ -1,8 +1,8 @@
 import { Tag } from 'antd'
 import { removePrefixLanguage } from '../../utils/helper'
 
-function NOVATag({ type }) {
-  const colorCategory = (type) => {
+function TagNOVA({ type }) {
+  const getColorCategory = (type) => {
     switch (type) {
       case '1-unprocessed-or-minimally-processed-foods':
         return {
@@ -32,7 +32,7 @@ function NOVATag({ type }) {
     }
   }
 
-  const { color, text } = colorCategory(removePrefixLanguage(type))
+  const { color, text } = getColorCategory(removePrefixLanguage(type))
 
   return (
     <Tag color={color}>
@@ -41,4 +41,4 @@ function NOVATag({ type }) {
   )
 }
 
-export default NOVATag
+export default TagNOVA

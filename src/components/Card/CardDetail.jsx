@@ -1,10 +1,10 @@
 import { Card, Col, Image, Row } from 'antd'
-import NOVATag from '../Tag/NOVATag'
-import NutrientLevelTag from '../Tag/NutrientLevelTag'
-import NutrimentsTag from '../Tag/NutrimentsTag'
+import TagNOVA from '../Tag/TagNOVA'
+import TagNutrientLevel from '../Tag/TagNutrientLevel'
+import TagNutriments from '../Tag/TagNutriments'
 import { formattingHtmltoString } from '../../utils/helper'
 
-function DetailCard({ product }) {
+function CardDetail({ product }) {
   return (
     <Card className="border-2">
       <Row>
@@ -21,13 +21,13 @@ function DetailCard({ product }) {
           </Row>
           <Row className="mb-2">
             <div className="mr-3 text-base">NOVA groups tag : </div>
-            <NOVATag type={product.nova_groups_tags[0]} />
+            <TagNOVA type={product.nova_groups_tags[0]} />
           </Row>
           <Row className="mb-2">
             <div className="mr-3 text-base">Nutrient level : </div>
             <Col>
               <Row gutter={[8, 8]}>
-                <NutrientLevelTag nutrient_levels={product.nutrient_levels} />
+                <TagNutrientLevel nutrient_levels={product.nutrient_levels} />
               </Row>
             </Col>
           </Row>
@@ -35,7 +35,7 @@ function DetailCard({ product }) {
             <div className="mr-3 text-base">Nutriments : </div>
             <Col>
               <Row gutter={[8, 8]}>
-                <NutrimentsTag nutriments={product.nutriments} />
+                <TagNutriments nutriments={product.nutriments} />
               </Row>
             </Col>
           </Row>
@@ -45,4 +45,4 @@ function DetailCard({ product }) {
   )
 }
 
-export default DetailCard
+export default CardDetail

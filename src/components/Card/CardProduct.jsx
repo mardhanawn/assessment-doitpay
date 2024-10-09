@@ -1,7 +1,7 @@
 import { Card, Image } from 'antd'
 import { Link } from 'react-router-dom'
 
-function ProductCard({ id, key, product_name, image_url, allergens }) {
+function CardProduct({ id, key, product_name, image_url, allergens }) {
   return (
     <Card className="text-center" key={key} hoverable>
       <Link to={`/detail/${id}`}>
@@ -13,4 +13,4 @@ function ProductCard({ id, key, product_name, image_url, allergens }) {
   )
 }
 
-export default ProductCard
+export default CardProduct

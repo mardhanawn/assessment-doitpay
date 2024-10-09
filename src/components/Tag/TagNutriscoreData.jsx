@@ -1,7 +1,7 @@
 import { Tag } from 'antd'
 import { formattingCharUnderscoreWithSpace } from '../../utils/helper'
 
-function NutriscoreDataTag({ type, value }) {
+function TagNutriscoreData({ type, value }) {
   return (
     <Tag color="default">
       <div className="text-wrap text-base">
@@ -11,4 +11,4 @@ function NutriscoreDataTag({ type, value }) {
   )
 }
 
-export default NutriscoreDataTag
+export default TagNutriscoreData

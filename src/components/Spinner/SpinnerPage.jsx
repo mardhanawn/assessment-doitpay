@@ -1,6 +1,6 @@
 import Spinner from '.'
 
-function PageSpinner() {
+function SpinnerPage() {
   return (
     <div className="flex h-screen w-screen items-center justify-center">
       <Spinner />
@@ -8,4 +8,4 @@ function PageSpinner() {
   )
 }
 
-export default PageSpinner
+export default SpinnerPage

@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 
 const { Search } = Input
 
-function ProductListSearch({ onSearch }) {
+function SearchProductList({ onSearch }) {
   const debouncedSearch = useCallback(
     debounce((value) => {
       onSearch(value)
@@ -27,4 +27,4 @@ function ProductListSearch({ onSearch }) {
   )
 }
 
-export default ProductListSearch
+export default SearchProductList

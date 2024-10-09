@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import ButtonBack from '../../components/Button/ButtonBack'
-import DetailCard from '../../components/Card/DetailCard'
-import NutriscoreCard from '../../components/Card/NutriscoreCard'
-import NutriscoreDataCard from '../../components/Card/NutriscoreDataCard'
-import PageSpinner from '../../components/Spinner/PageSpinner'
+import CardDetail from '../../components/Card/CardDetail'
+import CardNutriscore from '../../components/Card/CardNutriscore'
+import CardNutriscoreData from '../../components/Card/CardNutriscoreData'
+import SpinnerPage from '../../components/Spinner/SpinnerPage'
 import { product_detail } from '../../services/api/foodfacts'
 import Pages404 from '../404'
 
@@ -17,7 +17,7 @@ function Detail() {
   })
   const { product } = data || {}
 
-  if (isLoading) return <PageSpinner />
+  if (isLoading) return <SpinnerPage />
 
   if (error) {
     return <Pages404 />
@@ -32,9 +32,9 @@ function Detail() {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-5 py-5">
-        <DetailCard product={product} />
-        <NutriscoreCard grade={product.nutriscore_grade} score={product.nutriscore_score} />
-        <NutriscoreDataCard data={product.nutriscore_data} />
+        <CardDetail product={product} />
+        <CardNutriscore grade={product.nutriscore_grade} score={product.nutriscore_score} />
+        <CardNutriscoreData data={product.nutriscore_data} />
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import { Tag } from 'antd'
 
-function NutriscoreTag({ grade }) {
-  const colorCategory = (grade) => {
+function TagNutriscore({ grade }) {
+  const getColorCategory = (grade) => {
     switch (grade) {
       case 'a':
         return {
@@ -36,7 +36,7 @@ function NutriscoreTag({ grade }) {
     }
   }
 
-  const { color, text } = colorCategory(grade)
+  const { color, text } = getColorCategory(grade)
 
   return (
     <Tag color={color}>
@@ -45,4 +45,4 @@ function NutriscoreTag({ grade }) {
   )
 }
 
-export default NutriscoreTag
+export default TagNutriscore

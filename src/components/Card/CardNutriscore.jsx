@@ -1,8 +1,8 @@
 import { Card, Image } from 'antd'
 import nutriscore from '../../assets/icon/nutriscore.svg'
-import NutriscoreTag from '../Tag/NutriscoreTag'
+import TagNutriscore from '../Tag/TagNutriscore'
 
-function NutriscoreCard({ grade, score }) {
+function CardNutriscore({ grade, score }) {
   return (
     <Card className="border-2">
       <div className="mb-5 text-3xl font-semibold">Nutriscore</div>
@@ -29,7 +29,7 @@ function NutriscoreCard({ grade, score }) {
       <div className="flex items-center gap-x-5 text-3xl font-semibold">
         <Image width={100} src={nutriscore} preview={false} />
         <div>
-          Grade : <NutriscoreTag grade={grade} />
+          Grade : <TagNutriscore grade={grade} />
         </div>
         Score : {score || '-'}
       </div>
@@ -37,4 +37,4 @@ function NutriscoreCard({ grade, score }) {
   )
 }
 
-export default NutriscoreCard
+export default CardNutriscore
