@@ -16,7 +16,7 @@ function Dashboard() {
   const paramsList = {
     ...(search && { categories_tags: search }),
     page,
-    pageSize,
+    page_size: pageSize,
   }
 
   const { isLoading, data } = useQuery(
